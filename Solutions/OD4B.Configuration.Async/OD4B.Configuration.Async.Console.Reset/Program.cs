@@ -22,14 +22,12 @@ namespace OD4B.Configuration.Async.Console.Reset
 
              //get the new site collection
             string realm = TokenHelper.GetRealmFromTargetUrl(url);
-            var token = TokenHelper.GetAppOnlyAccessToken(
-                            TokenHelper.SharePointPrincipal, 
-                            url.Authority, realm).AccessToken;
+            var token = TokenHelper.GetAppOnlyAccessToken(TokenHelper.SharePointPrincipal, url.Authority, realm).AccessToken;
             using (var ctx = TokenHelper.GetClientContextWithAccessToken(url.ToString(), token))
             {
                 // Uncomment the one you need for testing/reset
                 // Apply(ctx, url);
-                Reset(ctx);
+                 Reset(ctx);
             }
         }
 
